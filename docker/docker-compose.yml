@@ -254,7 +254,7 @@ services:
       ENABLE_IMAGE_TRANSFORMATION: "true"
       IMGPROXY_URL: http://imgproxy:5001
     volumes:
-      - ./volumes/storage:/var/lib/storage:z
+      - ./docker/volumes/storage:/var/lib/storage:z
 
   imgproxy:
     container_name: supabase-imgproxy
@@ -270,7 +270,7 @@ services:
       IMGPROXY_USE_ETAG: "true"
       IMGPROXY_ENABLE_WEBP_DETECTION: ${IMGPROXY_ENABLE_WEBP_DETECTION}
     volumes:
-      - ./volumes/storage:/var/lib/storage:z
+      - ./docker/volumes/storage:/var/lib/storage:z
 
   meta:
     container_name: supabase-meta
@@ -306,7 +306,7 @@ services:
       # TODO: Allow configuring VERIFY_JWT per function. This PR might help: https://github.com/supabase/cli/pull/786
       VERIFY_JWT: "${FUNCTIONS_VERIFY_JWT}"
     volumes:
-      - ./volumes/functions:/home/deno/functions:Z
+      - ./docker/volumes/functions:/home/deno/functions:Z
     command:
       - start
       - --main-service
