@@ -419,7 +419,7 @@ services:
       interval: 5s
       retries: 3
     volumes:
-      - ./supabase/volumes/logs/vector.yml:/etc/vector/vector.yml:ro
+      - ./docker/volumes/logs/vector.yml:/etc/vector/vector.yml:ro
       - ${DOCKER_SOCKET_LOCATION}:/var/run/docker.sock:ro
     environment:
       LOGFLARE_API_KEY: ${LOGFLARE_API_KEY}
